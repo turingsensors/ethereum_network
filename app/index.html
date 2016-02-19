@@ -4,6 +4,8 @@
   <title>MetaCoin - Default Truffle App</title>
   <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
   <link href="./app.css" rel='stylesheet' type='text/css'>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> 
   <script src="./app.js"></script>
 </head>
 <body>
@@ -18,5 +20,12 @@
   <br><br><button id="send" onclick="sendCoin()">Send MetaCoin</button>
   <br><br>
   <span id="status"></span>
+
+
+  <div>
+    <button id="switch" onclick="turnOn()">Turn On</button>
+    <ul id="allAccounts">
+    </ul>
+  </div>
 </body>
 </html>

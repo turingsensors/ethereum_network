@@ -19,6 +19,18 @@ function refreshBalance() {
   });
 };
 
+function getBalance(address) {
+  var meta = MetaCoin.deployed();
+
+  meta.getBalance.call(address, {from: address}).then(function(value) {
+    var elt = "<li>" + address + " | " +  value.valueOf() +  "</li>";
+    $('#allAccounts').append(elt);
+  }).catch(function(e) {
+    console.log(e);
+      var elt = "<li>" + address + " | " +  0 +  "</li>";
+  });
+}
+
 function sendCoin() {
   var meta = MetaCoin.deployed();
 
@@ -36,6 +48,30 @@ function sendCoin() {
   });
 };
 
+function turnOn() {
+  var device = Device.deployed();
+  console.log(device)
+  device.changeStatus().then(function() {
+    console.log("Success")
+  }).catch(function(e) {
+    console.log(e);
+  });
+}
+
+  // var event = device.Powerup();
+
+  // event.watch(function(err, data) {
+  //   if (!err) {
+  //     console.log(data);
+  //   }
+  // });
+
+function refreshAll() {
+  for (var i = 0; i < accounts.length; i++) {
+      getBalance(accounts[i]);
+  }
+}
+
 window.onload = function() {
   web3.eth.getAccounts(function(err, accs) {
     if (err != null) {
@@ -52,5 +88,6 @@ window.onload = function() {
     account = accounts[0];
 
     refreshBalance();
+    refreshAll();
   });
 }
