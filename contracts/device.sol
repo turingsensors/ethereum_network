@@ -1,7 +1,8 @@
 contract Device {
 
-	address owner;
-	bool powered;
+	address public owner;
+	bool public powered;
+  
 	event Powerup(address sender, bytes32 message);
 
   function Device() {
@@ -21,9 +22,5 @@ contract Device {
   			powered = !powered;
   		}
   	}
-  }
-
-  function getStatus() constant returns (bool) {
-  	return powered;
   }
 }

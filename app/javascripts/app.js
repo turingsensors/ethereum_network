@@ -50,11 +50,11 @@ function sendCoin() {
 
 function turnOn() {
   var device = Device.deployed();
-  console.log(device)
-  device.changeStatus().then(function() {
+  device.changeStatus({from: account}).then(function() {
     console.log("Success")
   }).catch(function(e) {
     console.log(e);
+    console.log("WE FUCKED UP")
   });
 }
 
@@ -89,5 +89,6 @@ window.onload = function() {
 
     refreshBalance();
     refreshAll();
+    getDeviceStatus();
   });
 }
