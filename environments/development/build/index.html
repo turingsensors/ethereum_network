@@ -9,19 +9,6 @@
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script> 
   <script src="./app.js"></script>
-
-  <script type="text/javascript">
-    var device = Device.deployed();
-    var event = device.allEvents(function(err, data) {
-      if (!err) {
-        console.log("Tests");
-        console.log(data);
-      } else {
-        console.log(err);
-      }
-    });
-    console.log(device['powered']);
-  </script>
 </head>
 <body>
   <h1>MetaCoin</h1>
@@ -43,5 +30,14 @@
     <ul id="allAccounts">
     </ul>
   </div>
+  <script type="text/javascript">
+    var device = Device.deployed();
+    var myEvent = device.Powerup();
+    myEvent.watch(function(err, data) {
+      if (!err) {
+        console.log(data);
+      }
+    });
+  </script>
 </body>
 </html>

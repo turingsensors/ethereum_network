@@ -54,7 +54,6 @@ function turnOn() {
     console.log("Success");
   }).catch(function(e) {
     console.log(e);
-    console.log("WE FUCKED UP");
   });
 }
 
