@@ -1,8 +1,8 @@
 contract Device {
 
 	address owner;
-	bool powered;
-  uint energyLevel;
+	bool public powered;
+  uint public energyLevel;
 
 	event PowerOn(address sender, bytes32 message);
   event PowerOff(address sender, bytes32 message);
@@ -28,10 +28,6 @@ contract Device {
   	}
   }
 
-  function powerStatus() constant returns (bool status) {
-    return powered;
-  }
-
   function changeEnergy(uint newLevel) constant returns (bool success) {
     if (msg.sender != owner) {
       return;
@@ -39,9 +35,5 @@ contract Device {
       FlowChange(msg.sender, energyLevel, newLevel);
       energyLevel = newLevel;
     }
-  }
-
-  function getEnergy() constant returns (uint level) {
-    return energyLevel;
   }
 }
