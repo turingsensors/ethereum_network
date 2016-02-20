@@ -51,11 +51,10 @@ function sendCoin() {
 function turnOn() {
   var device = Device.deployed();
   device.changeStatus({from: account}).then(function() {
-    console.log("Success")
-    console.log(device.getStatus() + " TEST ");
+    console.log("Success");
   }).catch(function(e) {
     console.log(e);
-    console.log("WE FUCKED UP")
+    console.log("WE FUCKED UP");
   });
 }
 

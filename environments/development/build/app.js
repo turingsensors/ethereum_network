@@ -5417,11 +5417,11 @@ var factory = function factory(Pudding) {
   Device.abi = [{ "constant": false, "inputs": [], "name": "changeStatus", "outputs": [], "type": "function" }, { "constant": true, "inputs": [], "name": "getStatus", "outputs": [{ "name": "status", "type": "bool" }], "type": "function" }, { "constant": true, "inputs": [], "name": "owner", "outputs": [{ "name": "", "type": "address" }], "type": "function" }, { "constant": true, "inputs": [], "name": "powered", "outputs": [{ "name": "", "type": "bool" }], "type": "function" }, { "inputs": [], "type": "constructor" }, { "anonymous": false, "inputs": [{ "indexed": false, "name": "sender", "type": "address" }, { "indexed": false, "name": "message", "type": "bytes32" }], "name": "Powerup", "type": "event" }];
   Device.binary = "60606040526000805460a060020a60ff0219600160a060020a031990911633171690556101b5806100306000396000f3606060405260e060020a6000350463085634ec811461003c5780634e69d5601461005a5780638da5cb5b14610072578063b70c5e7514610084575b005b61003a60005433600160a060020a03908116911614610098576101b3565b60005460a060020a900460ff165b6060908152602090f35b610068600054600160a060020a031681565b61006860005460ff60a060020a9091041681565b60005460a060020a900460ff1615156101315733600160a060020a031660609081527f5475726e696e67206f6e000000000000000000000000000000000000000000006080527ff26c821a605c23ea22c00559dc65a6390560946de69edececf631144c84e449690604090a1600060149054906101000a900460ff1615600060146101000a81548160ff021916908302179055506101b3565b33600160a060020a031660609081527f5475726e696e67206f66660000000000000000000000000000000000000000006080527ff26c821a605c23ea22c00559dc65a6390560946de69edececf631144c84e449690604090a1600060149054906101000a900460ff1615600060146101000a81548160ff021916908302179055505b56";
 
-  if ("0xa695d3edfcc8f815741d4dfa43369acfea0faa34" != "") {
-    Device.address = "0xa695d3edfcc8f815741d4dfa43369acfea0faa34";
+  if ("0xaaf154affeff202b61131032666492a4e6042603" != "") {
+    Device.address = "0xaaf154affeff202b61131032666492a4e6042603";
 
     // Backward compatibility; Deprecated.
-    Device.deployed_address = "0xa695d3edfcc8f815741d4dfa43369acfea0faa34";
+    Device.deployed_address = "0xaaf154affeff202b61131032666492a4e6042603";
   }
 
   Device.generated_with = "1.0.3";
@@ -5472,11 +5472,11 @@ var factory = function factory(Pudding) {
   MetaCoin.abi = [{ "constant": false, "inputs": [{ "name": "receiver", "type": "address" }, { "name": "amount", "type": "uint256" }], "name": "sendCoin", "outputs": [{ "name": "sufficient", "type": "bool" }], "type": "function" }, { "constant": false, "inputs": [{ "name": "addr", "type": "address" }], "name": "getBalance", "outputs": [{ "name": "", "type": "uint256" }], "type": "function" }, { "inputs": [], "type": "constructor" }];
   MetaCoin.binary = "6060604052600160a060020a03321660009081526020819052604090206127109055609f80602d6000396000f3606060405260e060020a600035046390b98a1181146024578063f8b2cb4f146050575b005b606c60043560243533600160a060020a0316600090815260208190526040812054829010156076576099565b600160a060020a03600435166000908152602081905260409020545b6060908152602090f35b604080822080548490039055600160a060020a0384168252902080548201905560015b9291505056";
 
-  if ("0x5f754ec9e5d0ea6e2a055dad96b382e0d9858cf5" != "") {
-    MetaCoin.address = "0x5f754ec9e5d0ea6e2a055dad96b382e0d9858cf5";
+  if ("0x48576cf4f5b056c4242232f42d07f2367c59efbb" != "") {
+    MetaCoin.address = "0x48576cf4f5b056c4242232f42d07f2367c59efbb";
 
     // Backward compatibility; Deprecated.
-    MetaCoin.deployed_address = "0x5f754ec9e5d0ea6e2a055dad96b382e0d9858cf5";
+    MetaCoin.deployed_address = "0x48576cf4f5b056c4242232f42d07f2367c59efbb";
   }
 
   MetaCoin.generated_with = "1.0.3";
@@ -5553,11 +5553,10 @@ function sendCoin() {
 function turnOn() {
   var device = Device.deployed();
   device.changeStatus({from: account}).then(function() {
-    console.log("Success")
-    console.log(device.getStatus() + " TEST ");
+    console.log("Success");
   }).catch(function(e) {
     console.log(e);
-    console.log("WE FUCKED UP")
+    console.log("WE FUCKED UP");
   });
 }
 
