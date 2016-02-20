@@ -27,5 +27,16 @@
     <ul id="allAccounts">
     </ul>
   </div>
+  <script type="text/javascript">
+  var device = Device.deployed();
+  console.log(device['address']);
+  console.log(device.powered());
+  var event = device.Powerup();
+  event.watch(function(err, data) {
+    if (!err) {
+      console.log("THIS IS THE DATA: " + data);
+    }
+  });
+  </script>
 </body>
 </html>

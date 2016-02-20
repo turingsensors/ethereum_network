@@ -52,19 +52,12 @@ function turnOn() {
   var device = Device.deployed();
   device.changeStatus({from: account}).then(function() {
     console.log("Success")
+    console.log(device.getStatus() + " TEST ");
   }).catch(function(e) {
     console.log(e);
     console.log("WE FUCKED UP")
   });
 }
-
-  // var event = device.Powerup();
-
-  // event.watch(function(err, data) {
-  //   if (!err) {
-  //     console.log(data);
-  //   }
-  // });
 
 function refreshAll() {
   for (var i = 0; i < accounts.length; i++) {
@@ -89,6 +82,5 @@ window.onload = function() {
 
     refreshBalance();
     refreshAll();
-    getDeviceStatus();
   });
 }
