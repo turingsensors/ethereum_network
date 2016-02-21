@@ -25,19 +25,49 @@
 
 
   <div>
-    <button id="switch" onclick="turnOn()">Turn On</button>
+    <button id="switch">Turn On</button>
     <p id="state">Test</p>
     <ul id="allAccounts">
     </ul>
   </div>
   <script type="text/javascript">
     var device = Device.deployed();
-    var myEvent = device.Powerup();
+    var myEvent = device.PowerOn();
     myEvent.watch(function(err, data) {
       if (!err) {
-        console.log(data);
+        console.log("WORKING");
       }
     });
+
+    $('#switch').unbind().click(function() {
+      console.log("testing button");
+      var device = Device.deployed();
+      device.powerSwitch({from: account}).then(function() {
+        console.log("Success");
+      }).catch(function(e) {
+        console.log(e);
+      });
+    });
+
+
+    function post(path, params, method) {
+      method = method || "post";
+      var form = document.createElement("form");
+      form.setAttribute("method", method);
+      form.setAttribute("action", path);
+
+      for(var key in params) {
+          if(params.hasOwnProperty(key)) {
+              var hiddenField = document.createElement("input");
+              hiddenField.setAttribute("type", "hidden");
+              hiddenField.setAttribute("name", key);
+              hiddenField.setAttribute("value", params[key]);
+              form.appendChild(hiddenField);
+           }
+      }
+      document.body.appendChild(form);
+      form.submit();
+    }
   </script>
 </body>
 </html>

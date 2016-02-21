@@ -48,15 +48,6 @@ function sendCoin() {
   });
 };
 
-function turnOn() {
-  var device = Device.deployed();
-  device.changeStatus({from: account}).then(function() {
-    console.log("Success");
-  }).catch(function(e) {
-    console.log(e);
-  });
-}
-
 function refreshAll() {
   for (var i = 0; i < accounts.length; i++) {
       getBalance(accounts[i]);
